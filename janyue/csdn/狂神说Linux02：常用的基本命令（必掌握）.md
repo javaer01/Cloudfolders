@@ -296,7 +296,36 @@ rm: remove regular file ‘install.sh’? y
 *   -i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！
     
 *   -u ：若目标文件已经存在，且 source 比较新，才会升级 (update)
-    
+
+mv测试：
+
+==注意改名和移动在写法上的细微区别==
+
+```
+# 对于两个文件夹 sun sun2
+# 将sun 移动至sun2的操作是
+[root@www ~]# mv sun sun2/
+# 将sun 改名为sun2的操作是
+[root@www ~]# mv sun sun2
+
+-----------------------------------------------------------------
+[root@iZwz96mdtz7r80u28jd60tZ home]# mkdir sun sun2
+[root@iZwz96mdtz7r80u28jd60tZ home]# ls
+apache-tomcat-9.0.68  apache-tomcat-9.0.68.tar.gz  sun  sun2
+[root@iZwz96mdtz7r80u28jd60tZ home]# mv sun sun2/
+[root@iZwz96mdtz7r80u28jd60tZ home]# ls
+apache-tomcat-9.0.68  apache-tomcat-9.0.68.tar.gz  sun2
+[root@iZwz96mdtz7r80u28jd60tZ home]# cd sun2
+[root@iZwz96mdtz7r80u28jd60tZ sun2]# ls
+sun
+[root@iZwz96mdtz7r80u28jd60tZ sun2]# mv sun home/  # 想要把sun移动回上级目录home中，但是这样写是不对的
+[root@iZwz96mdtz7r80u28jd60tZ sun2]# ls
+home
+[root@iZwz96mdtz7r80u28jd60tZ sun2]# mv sun /home  # 正确的写法是这样，上面的写法不是home的绝对路径因此系统找不到home文件，只得理解成改名
+[root@iZwz96mdtz7r80u28jd60tZ sun2]# cd ..
+[root@iZwz96mdtz7r80u28jd60tZ home]# ls
+apache-tomcat-9.0.68  apache-tomcat-9.0.68.tar.gz  sun  sun2
+```
 
 测试：
 
