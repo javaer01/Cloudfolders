@@ -359,6 +359,8 @@ Linux系统是一种典型的多用户系统，不同的用户处于不同的地
 
 在Linux中我们可以使用`ll`或者`ls –l`命令来显示一个文件的属性以及文件所属的用户和组，如：
 
+![image-20221019003541095](https://raw.githubusercontent.com/javaer01/cloudimage/main/TyporaImg/co_img/202210190035350.png)
+
 实例中，boot文件的第一个属性用"d"表示。"d"在Linux中代表该文件是一个目录文件。
 
 在Linux中第一个字符代表这个文件是目录、文件或链接文件等等：
@@ -381,6 +383,8 @@ Linux系统是一种典型的多用户系统，不同的用户处于不同的地
 要注意的是，这三个权限的位置不会改变，如果没有权限，就会出现减号[ - ]而已。
 
 每个文件的属性由左边第一部分的10个字符来确定（如下图）：
+
+![image-20221019003619964](https://raw.githubusercontent.com/javaer01/cloudimage/main/TyporaImg/co_img/202210190036116.png)
 
 从左至右用0-9这些数字来表示。
 
@@ -437,6 +441,11 @@ Linux文件的基本权限就有九个，分别是owner/group/others三种身份
 
 ```
 r:4      w:2         x:1
+
+可读可写不可执行     rw-    6
+可读可写可执行       rwx    7
+
+chomd 777   文件赋予所有用户可读可写可执行！
 ```
 
 每种身份(owner/group/others)各自的三个权限(r/w/x)分数是需要累加的，例如当权限为：[-rwxrwx---] 分数则是：
@@ -462,22 +471,34 @@ chmod 770 filename
 
 Linux系统中使用以下命令来查看文件的内容：
 
-*   cat 由第一行开始显示文件内容
-    
-*   tac 从最后一行开始显示，可以看出 tac 是 cat 的倒着写！
-    
-*   nl  显示的时候，顺道输出行号！
-    
-*   more 一页一页的显示文件内容
-    
-*   less 与 more 类似，但是比 more 更好的是，他可以往前翻页！
-    
-*   head 只看头几行
-    
+* cat 由第一行开始显示文件内容，用来读文章，或者读取配置文件，都使用cat命令
+
+* tac 从最后一行开始显示，可以看出 tac 是 cat 的倒着写！
+
+  ![image-20221019011302425](https://raw.githubusercontent.com/javaer01/cloudimage/main/TyporaImg/co_img/202210190113662.png)
+
+* nl  显示的时候，顺道输出行号！（看代码的时候，希望显示行号！常用）
+
+  ![image-20221019011653156](https://raw.githubusercontent.com/javaer01/cloudimage/main/TyporaImg/co_img/202210190116329.png)
+
+* more 一页一页的显示文件内容（空格代表翻页，enter代表向下看一行）
+
+* less 与 more 类似，但是比 more 更好的是，他可以往前翻页！
+
+* head 只看头几行
+
 *   tail 只看尾巴几行
     
 
 你可以使用 _man [命令]_来查看各个命令的使用文档，如 ：man cp。
+
+Linux网络配置目录：`cd /etc/sysconfig/network-scripts`
+
+![image-20221019010542316](https://raw.githubusercontent.com/javaer01/cloudimage/main/TyporaImg/co_img/202210190105530.png)
+
+`ifconfig`命令查看网络配置
+
+![image-20221019010636792](https://raw.githubusercontent.com/javaer01/cloudimage/main/TyporaImg/co_img/202210190106017.png)
 
 > cat 由第一行开始显示文件内容
 
