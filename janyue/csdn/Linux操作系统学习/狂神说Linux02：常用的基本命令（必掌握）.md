@@ -481,14 +481,21 @@ Linux系统中使用以下命令来查看文件的内容：
 
   ![image-20221019011653156](https://raw.githubusercontent.com/javaer01/cloudimage/main/TyporaImg/co_img/202210190116329.png)
 
-* more 一页一页的显示文件内容（空格代表翻页，enter代表向下看一行）
+* more 一页一页的显示文件内容（空格代表翻页，enter代表向下看一行，:f 查看目前所在行号，f 在当前位置结束）
 
-* less 与 more 类似，但是比 more 更好的是，他可以往前翻页！
+  ![image-20221019192853397](https://raw.githubusercontent.com/javaer01/cloudimage/main/TyporaImg/co_img/202210191928589.png)
 
-* head 只看头几行
+* less 与 more 类似，但是比 more 更好的是，他可以往前翻页！（空格翻页，上下键翻动页面，q 退出命令，==查找字符串：向下查询   /要查找的字符串；向上查询  ？要查找的字符串    n继续寻找下一个   N寻找上一个==）
 
-*   tail 只看尾巴几行
+  ![image-20221019201449266](https://raw.githubusercontent.com/javaer01/cloudimage/main/TyporaImg/co_img/202210192014472.png)
+
+* head 只看头几行  通过 -n 参数来控制显示几行！ 
+
+  ![image-20221019195034937](https://raw.githubusercontent.com/javaer01/cloudimage/main/TyporaImg/co_img/202210191950087.png)
+
+*   tail 只看尾巴几行  用法同head
     
+    ![image-20221019200432341](https://raw.githubusercontent.com/javaer01/cloudimage/main/TyporaImg/co_img/202210192004483.png)
 
 你可以使用 _man [命令]_来查看各个命令的使用文档，如 ：man cp。
 
@@ -667,9 +674,11 @@ tail [-n number] 文件
 
   
 
+### 链接概念
+
 > 拓展：Linux 链接概念
 
-Linux 链接分两种，一种被称为硬链接（Hard Link），另一种被称为符号链接（Symbolic Link）。
+Linux 链接分两种，一种被称为硬链接（Hard Link），另一种被称为符号链接（Symbolic Link）也叫软链接。
 
 情况下，**ln** 命令产生硬链接。
 
@@ -716,7 +725,7 @@ I am f1 file
 cat: f3: No such file or directory
 ```
 
-通过上面的测试可以看出：当删除原始文件 f1 后，硬连接 f2 不受影响，但是符号连接 f1 文件无效；
+通过上面的测试可以看出：当删除原始文件 f1 后，硬连接 f2 不受影响，但是符号连接 f3 文件无效；
 
 依此您可以做一些相关的测试，可以得到以下全部结论：
 
